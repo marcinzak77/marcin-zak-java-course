@@ -3,8 +3,6 @@ package com.kodilla.testing.forum.statistics;
 public class ForumStatistics {
 
     private int usersCount;
-    private int postsCount;
-    private int commentsCount;
     private double averagePostCountPerUser;
     private double averageCommentsCountPerUser;
     private double averageCommentsCountPerPost;
