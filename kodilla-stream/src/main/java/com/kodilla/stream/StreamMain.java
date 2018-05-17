@@ -13,14 +13,7 @@ public class StreamMain {
         Forum theForumUsers = new Forum();
         Map<Integer, ForumUser> theResultMapOfUsers = theForumUsers.getUserList().stream()
                 .filter(user -> user.getSex() == 'M')
-                .filter(user -> {
-                            long intervalDays = ChronoUnit.DAYS.between(user.getDateOfBirth(), LocalDate.now());
-                            if (intervalDays > 7304) {
-                                return true;
-                            } else {
-                                return false;
-                            }
-                })
+                .filter(user -> ChronoUnit.DAYS.between(user.getDateOfBirth(), LocalDate.now())>7304)
                 .filter(user -> user.getPostPublished() > 0)
                 .collect(Collectors.toMap(ForumUser::getUserID, user -> user));
 
