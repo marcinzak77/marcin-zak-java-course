@@ -1,42 +1,31 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.ExpressionExecutor;
-import com.kodilla.stream.reference.FunctionalCalculator;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
+        Forum theForumUsers = new Forum();
+        Map<Integer, ForumUser> theResultMapOfUsers = theForumUsers.getUserList().stream()
+                .filter(user -> user.getSex() == 'M')
+                .filter(user -> {
+                            long intervalDays = ChronoUnit.DAYS.between(user.getDateOfBirth(), LocalDate.now());
+                            if (intervalDays > 7304) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                })
+                .filter(user -> user.getPostPublished() > 0)
+                .collect(Collectors.toMap(ForumUser::getUserID, user -> user));
 
-        System.out.println("Calculating expressions with lambdas");
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
-
-        System.out.println("Calculating expressions with method references");
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::multiplyAByB);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
-
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-
-        System.out.println("Text beautyfier");
-        poemBeautifier.beautify("This is my text", (textToDecorate -> textToDecorate.toUpperCase()));
-        poemBeautifier.beautify("This is my text", (textToDecorate -> {return "ABC" + textToDecorate + "ABC";}));
-        poemBeautifier.beautify("This is my text", (textToDecorate -> textToDecorate.replace("", " ").trim()));
-        poemBeautifier.beautify("This is my text", (textToDecorate -> {
-            char[] chars = textToDecorate.toCharArray();
-            for (int i = 0; i < textToDecorate.length(); i += 2) {
-                chars[i] = Character.toUpperCase(chars[i]);
-            }
-            return new String(chars);
+        for (Map.Entry entry: theResultMapOfUsers.entrySet()) {
+            System.out.println(entry);
         }
-        ));
-
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
     }
 }
