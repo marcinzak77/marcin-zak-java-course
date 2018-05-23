@@ -23,7 +23,7 @@ public class FirstChallenge {
         } catch (ArithmeticException e) {
             System.out.println("Divided by zero!");
         } finally {
-            System.out.println("End of method divide");
+            System.out.println("Method divide finished");
         }
     }
 }
