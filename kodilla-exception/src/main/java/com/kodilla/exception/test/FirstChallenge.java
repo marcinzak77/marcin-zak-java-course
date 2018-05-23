@@ -22,6 +22,8 @@ public class FirstChallenge {
             System.out.println(result);
         } catch (ArithmeticException e) {
             System.out.println("Divided by zero!");
+        } finally {
+            System.out.println("End of method divide");
         }
     }
 }
