@@ -13,7 +13,7 @@ public class RouteFinder {
         String arrivalAirport = flightDetails.getArrivalAirport();
 
         for (Map.Entry<String, Boolean> entry: airportAvailability.entrySet()) {
-            if (entry.getKey().equals(departureAirport) && entry.getKey().equals(arrivalAirport)) {
+            if (entry.getKey().equals(departureAirport) || entry.getKey().equals(arrivalAirport)) {
                 System.out.println("Flight is available.");
                 break;
                 }
