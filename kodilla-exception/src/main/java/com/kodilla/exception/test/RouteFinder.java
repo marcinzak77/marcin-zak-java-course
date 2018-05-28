@@ -7,7 +7,6 @@ public class RouteFinder {
 
     public void findFilght(Flight flight) throws RouteNotFoundException{
 
-        //Map<String, Boolean> airportAvailability = new HashMap<>();
         Map<String, Boolean> airportList = new HashMap<>();
         airportList.put("Berlin", true);
         airportList.put("Barcelona", true);
@@ -19,16 +18,14 @@ public class RouteFinder {
         String departureAirport = flightDetails.getDepartureAirport();
         String arrivalAirport = flightDetails.getArrivalAirport();
 
-        for (Map.Entry<String, Boolean> entry: airportList.entrySet()) {
-            if (entry.getKey().equals(departureAirport) && entry.getValue()) {
-                for (Map.Entry<String, Boolean> entry2: airportList.entrySet()) {
-                    if (entry2.getKey().equals(arrivalAirport) && entry2.getValue()) {
+
+            if (airportList.get(departureAirport)) {
+                    if (airportList.get(arrivalAirport)) {
                         System.out.println("Flight is available.");
                         return;
                     }
-                }
             }
-        }
+
         throw new RouteNotFoundException("Airport not available!");
     }
 }
