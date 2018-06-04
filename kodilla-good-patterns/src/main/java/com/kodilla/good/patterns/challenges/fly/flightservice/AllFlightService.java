@@ -9,10 +9,9 @@ import java.util.List;
 public class AllFlightService {
 
     public List<String> allFlightList(String cityName) {
-        List<City> allCities = new ArrayList<>();
         CityList cityList = new CityList();
 
-        allCities = cityList.getTheList();
+        List<City> allCities = cityList.getTheList();
         ArrayList<String> theList = new ArrayList<>();
         allCities.stream()
                 .filter(s -> s.getDepartureAirports().contains(cityName))
