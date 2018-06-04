@@ -11,7 +11,6 @@ public class FlightService {
             System.out.println("You can't fly to this same city!");
         }
         boolean directFlightFound = flight.getDeparture().getDepartureAirports().stream()
-                .filter(s -> s.equals(arrival))
                 .anyMatch(s -> s.equals(arrival));
 
         if (directFlightFound) {
