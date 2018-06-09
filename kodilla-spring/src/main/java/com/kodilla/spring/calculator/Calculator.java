@@ -5,14 +5,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Calculator {
-    double val;
 
     @Autowired
     private Display display;
 
     public double add(double a, double b) {
-        val = a + b;
-        display.displayValue(val);
+        display.displayValue(a + b);
         return a + b;
     }
 
