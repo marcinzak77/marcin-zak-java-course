@@ -16,7 +16,7 @@ public class GameRound {
             }
          }
 
-        ApplicationContext context = new AnnotationConfigApplicationContext();
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.rps");
         Shape shapeOne = (Shape)context.getBean(option);
         Shape shapeTwo = (Shape)context.getBean("random");
         CheckShapes checkShapes = new CheckShapes();

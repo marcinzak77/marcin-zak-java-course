@@ -27,7 +27,7 @@ public class ShapesFactory {
         return new Scissors();
     }
 
-    @Bean(name = "randomShape")
+    @Bean(name = "random")
     @Scope("prototype")
     public Shape randomShape() {
         Random generator = new Random();
