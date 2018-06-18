@@ -8,12 +8,18 @@ public class GameRound {
     public boolean GameRound(String option) {
 
         if (option.toLowerCase().equals("x")) {
-            System.out.println("Are You sure that you want finish this game ? [Y]es/{N]o");
-            char response = KeyboardReader.getReadString().toLowerCase().charAt(0);
-            if (response == 'y') {
+            System.out.println("Exit Game");
+            if (Confirmation.confirm(option)) {
                return true;
             }
-         }
+        } else if (option.toLowerCase().equals("n")) {
+                System.out.println("New Game");
+                if (Confirmation.confirm(option)) {
+                    GameStarter gameStarter = new GameStarter();
+                    gameStarter.startGame();
+                    return true;
+                }
+        }
 
         ShapesFactory factory = new ShapesFactory();
         Shape shapeOne = factory.makeShape(option);
