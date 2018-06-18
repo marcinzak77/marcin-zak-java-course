@@ -20,15 +20,14 @@ public class Movements {
         while (!optionList.contains(option)) {
             KeyboardReader keyboardReader = new KeyboardReader();
             option = keyboardReader.getReadString().toLowerCase();
-           // System.out.println("Incorrect choice. Try again!");
         }
 
         if (option.equals("1")) {
-            return "rock";
+            return "ROCK";
         } else if (option.equals("2")) {
-            return "paper";
+            return "PAPER";
         } else if (option.equals("3")) {
-            return "scissors";
+            return "SCISSORS";
         }
 
         return option;

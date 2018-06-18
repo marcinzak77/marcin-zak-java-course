@@ -17,7 +17,7 @@ public class GameStarter {
             Movements movements = new Movements();
             option = movements.options();
             done = gameRound.GameRound(option);
-            if (rounds > GameDetails.getRounds()) {
+            if (rounds >= GameDetails.getRounds()) {
                 done = true;
                 continue;
             }

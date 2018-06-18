@@ -1,44 +1,34 @@
 package com.kodilla.rps.shapes;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
-
 import java.util.Random;
 
-@Configuration
-public class ShapesFactory {
+public final class ShapesFactory {
+    public static final String PAPER = "PAPER";
+    public static final String ROCK = "ROCK";
+    public static final String SCISSORS = "SCISSORS";
 
-    @Bean(name = "paper")
-    @Scope("prototype")
-    public Paper createPaper() {
-        return new Paper();
-    }
+    public final Shape makeShape(final String shapeName) {
 
-    @Bean(name = "rock")
-    @Scope("prototype")
-    public Rock createRock() {
-        return new Rock();
-    }
+        switch (shapeName) {
 
-    @Bean(name = "scissors")
-    @Scope("prototype")
-    public Scissors createScissors() {
-        return new Scissors();
-    }
+            case (PAPER):
+                return new Paper();
+            case (ROCK):
+                return new Rock();
+            case (SCISSORS):
+                return new Scissors();
+            default:
+                Random generator = new Random();
+                int randomNumber = generator.nextInt(3);
 
-    @Bean(name = "random")
-    @Scope("prototype")
-    public Shape randomShape() {
-        Random generator = new Random();
-        int randomNumber = generator.nextInt(3);
-
-        if (randomNumber == 0) {
-            return new Paper();
-        } else if (randomNumber == 1) {
-            return new Rock();
-        } else {
-            return new Scissors();
+                if (randomNumber == 0) {
+                    return new Paper();
+                } else if (randomNumber == 1) {
+                    return new Rock();
+                } else {
+                    return new Scissors();
+                }
         }
+
     }
 }

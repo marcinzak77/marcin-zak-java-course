@@ -1,8 +1,7 @@
 package com.kodilla.rps.service;
 
 import com.kodilla.rps.shapes.Shape;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import com.kodilla.rps.shapes.ShapesFactory;
 
 public class GameRound {
 
@@ -16,9 +15,9 @@ public class GameRound {
             }
          }
 
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.rps");
-        Shape shapeOne = (Shape)context.getBean(option);
-        Shape shapeTwo = (Shape)context.getBean("random");
+        ShapesFactory factory = new ShapesFactory();
+        Shape shapeOne = factory.makeShape(option);
+        Shape shapeTwo = factory.makeShape("random");
         CheckShapes checkShapes = new CheckShapes();
         String results = checkShapes.checkShapes(shapeOne, shapeTwo);
         System.out.println("Winner is: " + results);
