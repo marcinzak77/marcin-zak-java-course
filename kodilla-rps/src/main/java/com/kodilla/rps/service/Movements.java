@@ -18,8 +18,7 @@ public class Movements {
         System.out.println("[n] New Game");
 
         while (!optionList.contains(option)) {
-            KeyboardReader keyboardReader = new KeyboardReader();
-            option = keyboardReader.getReadString().toLowerCase();
+            option = KeyboardReader.getReadString().toLowerCase();
         }
 
         if (option.equals("1")) {

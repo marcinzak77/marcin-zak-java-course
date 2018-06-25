@@ -1,7 +1,6 @@
 package com.kodilla.rps.service;
 
 public class Confirmation {
-    private boolean yes;
 
     public static boolean confirm(String option) {
 
