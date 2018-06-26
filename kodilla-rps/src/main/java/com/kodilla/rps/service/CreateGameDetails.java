@@ -10,6 +10,7 @@ public class CreateGameDetails {
         System.out.println("Please Enter Number Of Rounds: ");
         int rounds = Integer.parseInt(KeyboardReader.getReadString());
 
-        new GameDetails(name, rounds);
+        GameDetails.getInstance().setName(name);
+        GameDetails.getInstance().setRounds(rounds);
     }
 }

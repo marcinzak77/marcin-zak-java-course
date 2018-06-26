@@ -1,7 +1,7 @@
 package com.kodilla.rps.service;
 
 import com.kodilla.rps.shapes.Shape;
-import com.kodilla.rps.shapes.ShapesFactory;
+import com.kodilla.rps.shapes.MoveFactory;
 
 public class GameRound {
 
@@ -21,7 +21,7 @@ public class GameRound {
                 }
         }
 
-        ShapesFactory factory = new ShapesFactory();
+        MoveFactory factory = new MoveFactory();
         Shape shapeOne = factory.makeShape(option);
         Shape shapeTwo = factory.makeShape("random");
         CheckShapes checkShapes = new CheckShapes();

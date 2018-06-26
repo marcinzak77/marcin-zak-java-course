@@ -2,7 +2,7 @@ package com.kodilla.rps.shapes;
 
 import java.util.Random;
 
-public final class ShapesFactory {
+public final class MoveFactory {
     public static final String PAPER = "PAPER";
     public static final String ROCK = "ROCK";
     public static final String SCISSORS = "SCISSORS";
