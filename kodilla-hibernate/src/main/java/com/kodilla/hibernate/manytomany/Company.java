@@ -46,6 +46,7 @@ public class Company {
         return employees;
     }
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }

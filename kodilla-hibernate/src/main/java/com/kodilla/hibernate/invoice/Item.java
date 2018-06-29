@@ -3,6 +3,8 @@ package com.kodilla.hibernate.invoice;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "ITEM")
@@ -12,6 +14,7 @@ public class Item {
     private BigDecimal price;
     private int quantity;
     private BigDecimal value;
+    private Invoice invoice;
 
     public Item() {
     }
@@ -31,6 +34,8 @@ public class Item {
         return id;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
     @NotNull
     @Column(name = "PRODUCT")
     public Product getProduct() {
@@ -73,5 +78,15 @@ public class Item {
 
     private void setValue(BigDecimal value) {
         this.value = value;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "ITEM_ID")
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
+    private void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
 }
