@@ -10,6 +10,7 @@ public class Invoice {
     private int id;
     private String number;
     private List<Item> items;
+    //private Item item;
 
     public Invoice() {
     }
@@ -37,7 +38,7 @@ public class Invoice {
     @Column(name = "ITEMS")
     @OneToMany(
             targetEntity = Item.class,
-            mappedBy = "item",
+            mappedBy = "invoice",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
@@ -53,7 +54,8 @@ public class Invoice {
         this.number = number;
     }
 
-    private void setItems(List<Item> items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
-}
+
+    }
