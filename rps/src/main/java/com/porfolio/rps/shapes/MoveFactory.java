@@ -1,4 +1,4 @@
-package com.kodilla.rps.shapes;
+package com.porfolio.rps.shapes;
 
 import java.util.Random;
 

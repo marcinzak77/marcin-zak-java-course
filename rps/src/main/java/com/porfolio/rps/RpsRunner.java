@@ -1,6 +1,6 @@
-package com.kodilla.rps;
+package com.porfolio.rps;
 
-import com.kodilla.rps.service.GameStarter;
+import com.porfolio.rps.service.GameStarter;
 
 public class RpsRunner {
     public static void main(String[] args) {

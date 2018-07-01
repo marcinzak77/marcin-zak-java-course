@@ -1,7 +1,7 @@
-package com.kodilla.rps.service;
+package com.porfolio.rps.service;
 
-import com.kodilla.rps.shapes.Shape;
-import com.kodilla.rps.shapes.MoveFactory;
+import com.porfolio.rps.shapes.Shape;
+import com.porfolio.rps.shapes.MoveFactory;
 
 public class GameRound {
 

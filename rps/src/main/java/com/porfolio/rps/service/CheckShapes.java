@@ -1,6 +1,6 @@
-package com.kodilla.rps.service;
+package com.porfolio.rps.service;
 
-import com.kodilla.rps.shapes.Shape;
+import com.porfolio.rps.shapes.Shape;
 
 public class CheckShapes {
 

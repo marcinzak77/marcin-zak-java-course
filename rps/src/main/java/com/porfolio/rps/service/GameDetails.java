@@ -1,4 +1,4 @@
-package com.kodilla.rps.service;
+package com.porfolio.rps.service;
 
 public class GameDetails {
 
