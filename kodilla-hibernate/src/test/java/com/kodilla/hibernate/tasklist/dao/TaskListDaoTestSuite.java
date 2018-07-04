@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 public class TaskListDaoTestSuite {
     @Autowired
     private TaskListDao taskListDao;
+
     private static final String LISTNAME = "Name Of The List 1";
 
 
@@ -34,7 +35,7 @@ public class TaskListDaoTestSuite {
         Assert.assertEquals(id, readTaskList.getId());
 
         //Clean up
-        taskListDao.delete(id);
+        taskListDao.delete(readTaskList);
     }
 
     @Test
