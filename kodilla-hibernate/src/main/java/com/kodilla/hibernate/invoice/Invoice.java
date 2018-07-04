@@ -15,9 +15,8 @@ public class Invoice {
     public Invoice() {
     }
 
-    public Invoice(String number, List<Item> items) {
+    public Invoice(String number) {
         this.number = number;
-        this.items = items;
     }
 
     @Id
@@ -42,7 +41,7 @@ public class Invoice {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    public List<Item> getItems() {
+    private List<Item> getItems() {
         return items;
     }
 
