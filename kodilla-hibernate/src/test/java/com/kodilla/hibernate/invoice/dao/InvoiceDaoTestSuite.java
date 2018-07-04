@@ -35,10 +35,10 @@ public class InvoiceDaoTestSuite {
         Item itemOne = new Item(productOne, valueOne, 10);
         Item itemTwo = new Item(productTwo, valueTwo, 20);
         Item itemThree = new Item(productThree, valueThree, 5);
-        List<Item> itemsList = new ArrayList<>(Arrays.asList(itemOne, itemTwo, itemThree));
         productOne.getItems().add(itemOne);
         productTwo.getItems().add(itemTwo);
         productThree.getItems().add(itemThree);
+        List<Item> itemsList = new ArrayList<>(Arrays.asList(itemOne, itemTwo, itemThree));
 
         Invoice invoiceOne = new Invoice("01/06/2018", itemsList);
 
