@@ -18,11 +18,11 @@ public class MentorTestSuite {
         oswaldCappelpotStudentTasks.registerObserver(carolLuna);
 
         //When
-        edwardNigmaStudentTasks.getTasksList().add("Task 1");
-        edwardNigmaStudentTasks.getTasksList().add("Task 2");
-        johnSmithStudentTasks.getTasksList().add("Task 1");
-        oswaldCappelpotStudentTasks.getTasksList().add("Task 1");
-        oswaldCappelpotStudentTasks.getTasksList().add("Task 2");
+        edwardNigmaStudentTasks.addTask("Task 1");
+        edwardNigmaStudentTasks.addTask("Task 2");
+        johnSmithStudentTasks.addTask("Task 1");
+        oswaldCappelpotStudentTasks.addTask("Task 1");
+        oswaldCappelpotStudentTasks.addTask("Task 2");
         //Then
         assertEquals(2, evanGelya.getUpdateCount());
         assertEquals(3, carolLuna.getUpdateCount());

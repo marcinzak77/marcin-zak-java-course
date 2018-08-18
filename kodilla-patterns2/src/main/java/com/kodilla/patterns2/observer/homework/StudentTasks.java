@@ -14,6 +14,11 @@ public class StudentTasks implements Observable {
         this.name = name;
     }
 
+    public void addTask(String task) {
+        tasksList.add(task);
+        notifyObserver();
+    }
+
     @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);
